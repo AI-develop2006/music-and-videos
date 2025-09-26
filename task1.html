@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies & Music Explorer</title>
+  <link rel="stylesheet" href="task1.css" />
+</head>
+<body>
+  <nav>
+     <h3>Playfree</h3>
+     <h4> home</h4>
+     <h4> login</h4>
+     <h4> sign up</h4>
+  </nav>
+  <header>
+    <h1>🎬 Movies & 🎵 Music Explorer</h1>
+    <input type="text" id="searchInput" placeholder="Search movies or music..." />
+  </header><hr>
+
+  <main>
+    <section class="section">
+      <h2>Trending Movies</h2>
+      <div class="carousel" id="moviesCarousel"></div>
+    </section>
+
+    <section class="section">
+      <h2>Popular Music</h2>
+      <div class="carousel" id="musicCarousel"></div>
+    </section>
+  </main>
+
+  <!-- Modal for details -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h2 id="detailTitle"></h2>
+      <img id="detailImage" />
+      <p id="detailDescription"></p>
+      <div id="videoContainer"></div>
+      <audio id="musicPreview" controls style="display:none;"></audio>
+    </div>
+  </div>
+  <center><h2>THANK YOU</h2></center>
+
+  <script src="task1.js"></script>
+</body>
+</html>
