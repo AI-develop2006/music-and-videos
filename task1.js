@@ -1,11 +1,11 @@
-// 🎬 YouTube API Key
+
 const YT_KEY = "AIzaSyAjfO48kiHr4NQnVZY5y7wnWL2CcRFh5R0";
 
 const moviesCarousel = document.getElementById("moviesCarousel");
 const musicCarousel = document.getElementById("musicCarousel");
 const searchInput = document.getElementById("searchInput");
 
-// 🎬 Load Movies (YouTube trailers)
+
 async function loadMovies(query = "html css") {
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=15&q=${encodeURIComponent(query)}&key=${YT_KEY}`;
   const res = await fetch(url);
@@ -43,7 +43,7 @@ function displayMovies(videos) {
   });
 }
 
-// 🎵 Load Music (iTunes API)
+
 async function loadMusic(query = "ar rahman") {
   const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&limit=15`;
   const res = await fetch(url);
@@ -76,18 +76,17 @@ function displayMusic(tracks) {
   });
 }
 
-// 📜 Show details modal
+
 function showDetails(title, desc, img, audio = null, videoId = null) {
   const detailModal = document.getElementById("detailModal");
   const videoContainer = document.getElementById("videoContainer");
   const audioEl = document.getElementById("musicPreview");
 
-  // Set title, description, image
+
   document.getElementById("detailTitle").innerText = title;
   document.getElementById("detailDescription").innerText = desc;
   document.getElementById("detailImage").src = img;
 
-  // Handle music
   if (audio) {
     audioEl.style.display = "block";
     audioEl.src = audio;
@@ -96,7 +95,6 @@ function showDetails(title, desc, img, audio = null, videoId = null) {
     audioEl.src = "";
   }
 
-  // Handle YouTube video
   if (videoId) {
     videoContainer.innerHTML = `
       <iframe
@@ -115,12 +113,11 @@ function showDetails(title, desc, img, audio = null, videoId = null) {
   detailModal.style.display = "block";
 }
 
-// ❌ Close Modal
+
 document.getElementById("closeModal").onclick = () => {
   document.getElementById("detailModal").style.display = "none";
 };
 
-// 🔍 Search functionality (debounced)
 let searchTimeout;
 searchInput.addEventListener("input", (e) => {
   clearTimeout(searchTimeout);
@@ -133,6 +130,7 @@ searchInput.addEventListener("input", (e) => {
   }, 500);
 });
 
-// 🚀 Initial load
+
 loadMovies();
 loadMusic();
+
